@@ -18,8 +18,8 @@
 		2F6F5160178FE2500045701C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F515F178FE2500045701C /* Default-568h@2x.png */; };
 		2F6F5163178FE2500045701C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F5162178FE2500045701C /* ViewController.m */; };
 		2F6F5166178FE2500045701C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5164178FE2500045701C /* ViewController.xib */; };
-		2F6F516E178FE2810045701C /* Cipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F516D178FE2810045701C /* Cipher.m */; };
 		2F6F5174178FF6360045701C /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5173178FF6360045701C /* test.png */; };
+		2F6F5178178FFBAC0045701C /* Cipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F5177178FFBAC0045701C /* Cipher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		2F6F5161178FE2500045701C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2F6F5162178FE2500045701C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2F6F5165178FE2500045701C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		2F6F516C178FE2800045701C /* Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cipher.h; sourceTree = "<group>"; };
-		2F6F516D178FE2810045701C /* Cipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cipher.m; sourceTree = "<group>"; };
 		2F6F5173178FF6360045701C /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		2F6F5176178FFBAC0045701C /* Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cipher.h; sourceTree = "<group>"; };
+		2F6F5177178FFBAC0045701C /* Cipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cipher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +92,8 @@
 				2F6F5159178FE2500045701C /* AppDelegate.m */,
 				2F6F5161178FE2500045701C /* ViewController.h */,
 				2F6F5162178FE2500045701C /* ViewController.m */,
-				2F6F516C178FE2800045701C /* Cipher.h */,
-				2F6F516D178FE2810045701C /* Cipher.m */,
 				2F6F5164178FE2500045701C /* ViewController.xib */,
+				2F6F5175178FFBAC0045701C /* Cipher */,
 				2F6F5150178FE2500045701C /* Supporting Files */,
 			);
 			path = TestCipher;
@@ -113,6 +112,15 @@
 				2F6F515F178FE2500045701C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F6F5175178FFBAC0045701C /* Cipher */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F5176178FFBAC0045701C /* Cipher.h */,
+				2F6F5177178FFBAC0045701C /* Cipher.m */,
+			);
+			path = Cipher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +193,7 @@
 				2F6F5156178FE2500045701C /* main.m in Sources */,
 				2F6F515A178FE2500045701C /* AppDelegate.m in Sources */,
 				2F6F5163178FE2500045701C /* ViewController.m in Sources */,
-				2F6F516E178FE2810045701C /* Cipher.m in Sources */,
+				2F6F5178178FFBAC0045701C /* Cipher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
