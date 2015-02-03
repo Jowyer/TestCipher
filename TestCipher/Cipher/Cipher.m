@@ -3,7 +3,6 @@
 //  TestCipher
 //
 //  Created by Jun Wang on 13-7-12.
-//  Copyright (c) 2013年 Aruba Studio. All rights reserved.
 //
 
 #import "Cipher.h"
@@ -100,7 +99,7 @@
     
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     
-    CC_MD5(src, strlen(src), result);
+    CC_MD5(src, (CC_LONG)strlen(src), result);
     
     return [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
 }

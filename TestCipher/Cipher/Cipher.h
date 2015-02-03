@@ -3,7 +3,6 @@
 //  TestCipher
 //
 //  Created by Jun Wang on 13-7-12.
-//  Copyright (c) 2013年 Aruba Studio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,7 +14,7 @@
     NSString* cipherKey;
 }
 
-@property (retain) NSString* cipherKey;
+@property (strong) NSString* cipherKey;
 
 - (Cipher *) initWithKey:(NSString *) key;
 

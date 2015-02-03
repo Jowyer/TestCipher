@@ -3,7 +3,6 @@
 //  TestCipher
 //
 //  Created by Jun Wang on 13-7-12.
-//  Copyright (c) 2013年 Aruba Studio. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -19,17 +18,52 @@
 {
     [super viewDidLoad];
     
+    [self testWithString];
+    
+//    [self testWithImage];
+}
+
+- (void)testWithString {
+    // 1. Create a cipher with a secret cipherKey
+    NSString *cipherKey = @"123";
+    Cipher *cipher = [[Cipher alloc] initWithKey:cipherKey];
+    
+    // 2. prepare the original data we want to encrypt and print the input
+    NSString *password = @"www.apple.com";
+    NSData *originalData = [password dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"password : %@", password);
+    NSLog(@"originalData : %@", originalData);
+    
+    // 3. encrypt the data and print it
+    NSData *encryptData = [cipher encrypt:originalData];
+    NSLog(@"encryptData : %@", encryptData);
+    
+    // 4. try to decode the encrypt data which will fail..
+    NSString *tryToDecryptString = [[NSString alloc] initWithData:encryptData encoding:NSUTF8StringEncoding];
+    NSLog(@"tryToDecryptString : %@", tryToDecryptString);
+    NSLog(@"------------------");
+    
+    // 5. decrypte the data and print the output
+    NSData *decryptData = [cipher decrypt:encryptData];
+    NSString *decrpytString = [[NSString alloc] initWithData:decryptData encoding:NSUTF8StringEncoding];
+    NSLog(@"decryptData : %@", decryptData);
+    NSLog(@"decryptString : %@", decrpytString);
+}
+
+- (void)testWithImage {
+    NSString *cipherKey = @"123";
+    Cipher *cipher = [[Cipher alloc] initWithKey:cipherKey];
+    
     NSString *imageName = @"test";
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
     NSURL *imageUrl = [NSURL fileURLWithPath:imagePath];
     NSData *bData = [NSData dataWithContentsOfURL:imageUrl];
     
-    Cipher *cipher = [[[Cipher alloc] initWithKey:@"123"] autorelease];
     NSLog(@"Pre Encrypt");
-//    NSLog(@"orignal data is %@", bData);
+    NSLog(@"orignal data is %@", bData);
     NSData *encryptData = [cipher encrypt:bData];
     NSLog(@"After Encrypt");
-//    NSLog(@"encrypt data is %@", encryptData);
+    NSLog(@"encrypt data is %@", encryptData);
     
     NSLog(@"Pre Decrypt");
     NSData *decryptData = [cipher decrypt:encryptData];

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>71D5E9F3-09A6-42FC-814B-2ED4EC2CE1B7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TestCipher</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8CA0F53D29A3019BDBFB2A6497CF200E344BC9ED</key>
+		<string>https://github.com/Jowyer/TestCipher.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TestCipher.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8CA0F53D29A3019BDBFB2A6497CF200E344BC9ED</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jowyer/TestCipher.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8CA0F53D29A3019BDBFB2A6497CF200E344BC9ED</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8CA0F53D29A3019BDBFB2A6497CF200E344BC9ED</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TestCipher</string>
+		</dict>
+	</array>
+</dict>
+</plist>
