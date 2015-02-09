@@ -5,6 +5,11 @@
 //  Created by Jun Wang on 13-7-12.
 //
 
+/**
+ Work with Java : http://watchitlater.com/blog/2010/02/java-and-iphone-aes-interoperability/
+ Work with C# : http://automagical.rationalmind.net/2009/02/12/aes-interoperability-between-net-and-iphone/
+ */
+
 #import "Cipher.h"
 
 @implementation Cipher 
@@ -49,6 +54,11 @@
     uint8_t iv[kCCBlockSizeAES128];
     memset((void *) iv, 0x0, (size_t) sizeof(iv));
     
+    /**
+     1. Block cipher mode of operation : CBC (by the absence of the kCCOptionECBMode bit in the options flags)
+     2. Padding : PKCS7
+     3. IV : a NULL (all zeroes) IV will be used. byte[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+     */
     status = CCCryptorCreate(encryptOrDecrypt, kCCAlgorithmAES128, kCCOptionPKCS7Padding,
                              [secretKey bytes], kCCKeySizeAES128, iv, &cryptor);
     
