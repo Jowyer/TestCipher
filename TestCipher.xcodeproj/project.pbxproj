@@ -20,6 +20,8 @@
 		2F6F5166178FE2500045701C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5164178FE2500045701C /* ViewController.xib */; };
 		2F6F5174178FF6360045701C /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5173178FF6360045701C /* test.png */; };
 		2F6F5178178FFBAC0045701C /* Cipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F5177178FFBAC0045701C /* Cipher.m */; };
+		FE0E6CCB1A88B40E00F49E32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0E6CCA1A88B40E00F49E32 /* Security.framework */; };
+		FE0E6CCE1A88F5B600F49E32 /* NSData+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0E6CCD1A88F5B600F49E32 /* NSData+Addition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,9 @@
 		2F6F5173178FF6360045701C /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		2F6F5176178FFBAC0045701C /* Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cipher.h; sourceTree = "<group>"; };
 		2F6F5177178FFBAC0045701C /* Cipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cipher.m; sourceTree = "<group>"; };
+		FE0E6CCA1A88B40E00F49E32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FE0E6CCC1A88F5B600F49E32 /* NSData+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Addition.h"; sourceTree = "<group>"; };
+		FE0E6CCD1A88F5B600F49E32 /* NSData+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Addition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0E6CCB1A88B40E00F49E32 /* Security.framework in Frameworks */,
 				2F6F514A178FE2500045701C /* UIKit.framework in Frameworks */,
 				2F6F514C178FE2500045701C /* Foundation.framework in Frameworks */,
 				2F6F514E178FE2500045701C /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +84,7 @@
 		2F6F5148178FE2500045701C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE0E6CCA1A88B40E00F49E32 /* Security.framework */,
 				2F6F5149178FE2500045701C /* UIKit.framework */,
 				2F6F514B178FE2500045701C /* Foundation.framework */,
 				2F6F514D178FE2500045701C /* CoreGraphics.framework */,
@@ -92,6 +99,8 @@
 				2F6F5159178FE2500045701C /* AppDelegate.m */,
 				2F6F5161178FE2500045701C /* ViewController.h */,
 				2F6F5162178FE2500045701C /* ViewController.m */,
+				FE0E6CCC1A88F5B600F49E32 /* NSData+Addition.h */,
+				FE0E6CCD1A88F5B600F49E32 /* NSData+Addition.m */,
 				2F6F5164178FE2500045701C /* ViewController.xib */,
 				2F6F5175178FFBAC0045701C /* Cipher */,
 				2F6F5150178FE2500045701C /* Supporting Files */,
@@ -192,6 +201,7 @@
 			files = (
 				2F6F5156178FE2500045701C /* main.m in Sources */,
 				2F6F515A178FE2500045701C /* AppDelegate.m in Sources */,
+				FE0E6CCE1A88F5B600F49E32 /* NSData+Addition.m in Sources */,
 				2F6F5163178FE2500045701C /* ViewController.m in Sources */,
 				2F6F5178178FFBAC0045701C /* Cipher.m in Sources */,
 			);

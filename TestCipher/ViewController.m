@@ -8,9 +8,7 @@
 #import "ViewController.h"
 #import "Cipher.h"
 
-@interface ViewController ()
-
-@end
+#import "NSData+Addition.h"
 
 @implementation ViewController
 
@@ -24,9 +22,23 @@
 }
 
 - (void)testWithString {
-    // 1. Create a cipher with a secret cipherKey
-    NSString *cipherKey = @"123";
-    Cipher *cipher = [[Cipher alloc] initWithKey:cipherKey];
+    // 1. Create a cipher with keyData and ivData
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"key"]) {
+        NSData *_keyData = [NSData randomDataOfLength:16];
+        NSData *_ivData = [NSData randomDataOfLength:16];
+        [defaults setObject:_keyData forKey:@"key"];
+        [defaults setObject:_ivData forKey:@"iv"];
+        [defaults synchronize];
+    }
+    
+    Cipher *cipher = [Cipher new];
+    cipher.keyData = [defaults objectForKey:@"key"];
+    cipher.ivData = [defaults objectForKey:@"iv"];
+    NSLog(@"keyDataString is %@", [[NSString alloc] initWithCharacters:cipher.keyData.bytes length:16]);
+    NSLog(@"keyData is %@", cipher.keyData);
+    NSLog(@"ivDataString is %@", [[NSString alloc] initWithCharacters:cipher.ivData.bytes length:16]);
+    NSLog(@"ivData is %@", cipher.ivData);
     
     // 2. prepare the original data we want to encrypt and print the input
     NSString *password = @"www.apple.com";
@@ -51,8 +63,22 @@
 }
 
 - (void)testWithImage {
-    NSString *cipherKey = @"123";
-    Cipher *cipher = [[Cipher alloc] initWithKey:cipherKey];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"key"]) {
+        NSData *_keyData = [NSData randomDataOfLength:16];
+        NSData *_ivData = [NSData randomDataOfLength:16];
+        [defaults setObject:_keyData forKey:@"key"];
+        [defaults setObject:_ivData forKey:@"iv"];
+        [defaults synchronize];
+    }
+    
+    Cipher *cipher = [Cipher new];
+    cipher.keyData = [defaults objectForKey:@"key"];
+    cipher.ivData = [defaults objectForKey:@"iv"];
+    NSLog(@"keyDataString is %@", [[NSString alloc] initWithCharacters:cipher.keyData.bytes length:16]);
+    NSLog(@"keyData is %@", cipher.keyData);
+    NSLog(@"ivDataString is %@", [[NSString alloc] initWithCharacters:cipher.ivData.bytes length:16]);
+    NSLog(@"ivData is %@", cipher.ivData);
     
     NSString *imageName = @"test";
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];

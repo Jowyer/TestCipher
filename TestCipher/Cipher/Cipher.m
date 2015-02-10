@@ -14,24 +14,6 @@
 
 @implementation Cipher 
 
-@synthesize cipherKey;
-
-- (Cipher *) initWithKey:(NSString *) key
-{
-    self = [super init];
-    if (self)
-    {
-        [self setCipherKey:key];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    self.cipherKey = nil;
-    [super dealloc];
-}
-
 - (NSData *) encrypt:(NSData *) plainText
 {
     return [self transform:kCCEncrypt data:plainText];
@@ -42,25 +24,26 @@
     return [self transform:kCCDecrypt data:cipherText];
 }
 
+/**
+ *  Transform inputData to returnData by using given cryptor method.
+ *
+ *  @param encryptOrDecrypt Method to use. Either Encrypt or Decrypt.
+ *  @param inputData        The given raw data.
+ *
+ *  @return Output data after cryptor manipulation.
+ */
 - (NSData *) transform:(CCOperation) encryptOrDecrypt data:(NSData *) inputData
 {
-    // kCCKeySizeAES128 = 16 bytes
-    // CC_MD5_DIGEST_LENGTH = 16 bytes
-    NSData* secretKey = [Cipher md5:cipherKey];
-    
     CCCryptorRef cryptor = NULL;
     CCCryptorStatus status = kCCSuccess;
     
-    uint8_t iv[kCCBlockSizeAES128];
-    memset((void *) iv, 0x0, (size_t) sizeof(iv));
-    
     /**
-     1. Block cipher mode of operation : CBC (by the absence of the kCCOptionECBMode bit in the options flags)
-     2. Padding : PKCS7
-     3. IV : a NULL (all zeroes) IV will be used. byte[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+     1. AES Algorithm = 16 bytes
+     2. Block cipher mode of operation : CBC (by the absence of the kCCOptionECBMode bit in the options flags)
+     3. Padding : PKCS7
      */
     status = CCCryptorCreate(encryptOrDecrypt, kCCAlgorithmAES128, kCCOptionPKCS7Padding,
-                             [secretKey bytes], kCCKeySizeAES128, iv, &cryptor);
+                             self.keyData.bytes, kCCKeySizeAES128, self.ivData.bytes, &cryptor);
     
     if (status != kCCSuccess)
     {
@@ -101,17 +84,6 @@
     CCCryptorRelease(cryptor);
     
     return [NSData dataWithBytesNoCopy:buf length:bytesTotal];
-}
-
-+ (NSData *) md5:(NSString *) stringToHash
-{
-    const char *src = [stringToHash UTF8String];
-    
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    
-    CC_MD5(src, (CC_LONG)strlen(src), result);
-    
-    return [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
 }
 
 @end
