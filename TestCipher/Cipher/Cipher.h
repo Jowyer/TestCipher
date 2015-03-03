@@ -13,7 +13,12 @@
  *  Cipher Class to encrypt/decrypt data using AES algorithm.
  */
 @interface Cipher : NSObject
-
+/**
+ *  Returns a singleton cipher object.
+ *
+ *  @return The singleton cipher.
+ */
++ (instancetype)sharedCipher;
 /**
  *  Raw key material in NSData format.
  */

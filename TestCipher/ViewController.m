@@ -16,9 +16,23 @@
 {
     [super viewDidLoad];
     
+    [self testWithSharedCipher];
+    
     [self testWithString];
     
 //    [self testWithImage];
+}
+
+- (void)testWithSharedCipher {
+    NSString *keyString = @"saonjS7icLy8iQb4";
+    NSString *ivString = @"opGTs99g5RAqEWsn";
+    [Cipher sharedCipher].keyData = [keyString dataUsingEncoding:NSUTF8StringEncoding];
+    [Cipher sharedCipher].ivData = [ivString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *password = @"12345678";
+    NSData *originalData = [password dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *encryptData = [[Cipher sharedCipher] encrypt:originalData];
+    NSLog(@"sharedCipher encryptData : %@", encryptData);
 }
 
 - (void)testWithString {
@@ -41,7 +55,7 @@
     NSLog(@"ivData is %@", cipher.ivData);
     
     // 2. prepare the original data we want to encrypt and print the input
-    NSString *password = @"www.apple.com";
+    NSString *password = @"12345678";
     NSData *originalData = [password dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"password : %@", password);
     NSLog(@"originalData : %@", originalData);

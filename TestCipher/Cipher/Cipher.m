@@ -12,7 +12,17 @@
 
 #import "Cipher.h"
 
-@implementation Cipher 
+@implementation Cipher
+
++ (instancetype)sharedCipher {
+    static Cipher *_sharedCipher = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedCipher = [[self alloc] init];
+    });
+    
+    return _sharedCipher;
+}
 
 - (NSData *) encrypt:(NSData *) plainText
 {
